@@ -1,10 +1,13 @@
 console.log('ROCK paper scisssors')
 
+
+// Initial variable setting
 let pscore = 0;
 let cscore = 0;
 let compGuess = ''
 let playerGuess = ''
 
+// Random number selection for computer
 function comp() {
    let compNum = Math.floor(Math.random()*3+1)
   
@@ -20,6 +23,7 @@ function comp() {
    
 }
 
+// Player guess 
 function player () {
     playerGuess =  prompt('Player Goes here');
     playerGuess= playerGuess.toLowerCase();
@@ -35,6 +39,7 @@ function player () {
 
 }
 
+// logic to determine winner based on RPS rules
 function playRound() {
     console.log(`Computer Picked ${compGuess}`);
     console.log(`Player Picked ${playerGuess}`);
@@ -68,6 +73,8 @@ function playRound() {
     
     } 
 }
+
+// Play a round 
 function game() {
     comp();
    
@@ -79,10 +86,12 @@ function game() {
    console.log(`The score is Player ${pscore} to Computer ${cscore}`);
 }
 
-
+// Play game 5 times as per instructions
 for (let i =1; i<6;i++){
 game();
 }
+
+//Determine winner
 
 if(pscore > cscore) {
     console.log(`Player Wins by a score of: ${pscore} to ${cscore} `)
