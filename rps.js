@@ -25,7 +25,10 @@ function player () {
     playerGuess= playerGuess.toLowerCase();
     console.log(playerGuess);
     if (!(playerGuess ==='rock'  || playerGuess ==='paper' || playerGuess ==='!scissors')) {
-        console.log('MUST PICK ROCK PAPER OR SCISSORS')
+        console.log('MUST PICK ROCK PAPER OR SCISSORS');
+        playerGuess =  prompt('PICK ROCK PAPER OR SCISSORS');
+        playerGuess= playerGuess.toLowerCase();
+
     } else {
         console.log('YOU MADE A CORRECT CHOICE')
     }
@@ -48,20 +51,20 @@ function playRound() {
     } else if ( playerGuess === 'paper' && compGuess === 'rock') {
         console.log('Player Wins');
         pscore = pscore +1
-        console.log(pscore);
+    
     } else if ( playerGuess === 'paper' && compGuess === 'scissors') {
         console.log('Computer Wins');
         cscore = cscore +1
-        console.log(cscore);
+    
     } else if ( playerGuess === 'scissors' && compGuess === 'rock') {
     console.log('Computer Wins');
     cscore = cscore +1
-    console.log(cscore);
+    
 
     } else if ( playerGuess === 'scissors' && compGuess === 'paper') {
     console.log('Player Wins');
     pscore = pscore +1
-    console.log(pscore);
+    
     
     } 
 }
@@ -69,7 +72,22 @@ function game() {
     comp();
    
     player();
+
+   
    playRound();
+   
+   console.log(`The score is Player ${pscore} to Computer ${cscore}`);
 }
 
+
+for (let i =1; i<6;i++){
 game();
+}
+
+if(pscore > cscore) {
+    console.log(`Player Wins by a score of: ${pscore} to ${cscore} `)
+} else if (pscore < cscore) {
+    console.log(`Computer wins by a score of: ${cscore} to ${pscore}`)
+} else {
+    console.log(`We have a tie: ${cscore} to ${pscore} `)
+}
